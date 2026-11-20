@@ -1,53 +1,70 @@
-FITTRACK – DEINE KOSTENLOSE IPHONE-TRAININGS-APP
-==================================================
+FITTRACK 2.0 – UPDATE FÜR DEIN IPHONE
+=====================================
 
-Enthaltene Dateien:
-  index.html
-  styles.css
-  app.js
-  manifest.webmanifest
-  sw.js
-  icon-192.png
-  icon-512.png
-  apple-touch-icon.png
+Diese Version ersetzt die festen A/B/C-Trainingspläne durch frei zusammenstellbare Workouts.
 
-FUNKTIONEN
-- Drei editierbare Ganzkörper-Trainingspläne A/B/C
-- Übungen, Gewichte, Wiederholungen und Sätze loggen
-- Vergangenes Training als Vorgabe und Fortschrittsdiagramm
-- Körpergewicht, Kalorien und Eiweiß erfassen
-- Offline-Unterstützung und JSON-Export/-Import
+NEU
+- Über 80 Übungen nach Muskelgruppen + Suche
+- Eigene Übungen dauerhaft anlegen, gruppieren und löschen
+- Pro Workout Übungen individuell auswählen, Sätze/kg/Wdh./RIR erfassen
+- Trainingsdatum, Start- und Endzeit inkl. Training über Mitternacht
+- Pausentimer 60/90/120/180 Sekunden oder eigene Dauer, Ton wenn App aktiv
+- Trainingshistorie und nachträgliches Bearbeiten
+- Statistik: Trainingskonstanz, Volumen-Last, Zeit, Muskelgruppen-Sätze,
+  geschätztes 1RM pro Übung, Trendcharts, RIR, Körpergewicht, Ernährung
+- Nährwerte (kcal, Eiweiß, Fett, Kohlenhydrate)
+- Offline und JSON-Datenexport/-Import
 
-KOSTENLOS AUF DEM IPHONE INSTALLIEREN
-1. Ein kostenloses Konto auf github.com anlegen, falls nicht vorhanden.
-2. Ein neues Repository anlegen, z.B. "fittrack". Für kostenloses
-   GitHub Pages muss das Repository öffentlich sein (nur Programmdateien,
-   KEINE privaten Trainingsdaten hochladen).
-3. Die 8 App-Dateien aus diesem Ordner (ohne README.txt) im Repository
-   in die oberste Ebene hochladen: Add file > Upload files > Commit changes.
-4. Repository > Settings > Pages > Source "Deploy from a branch" >
-   Branch "main" > Folder "/ (root)" > Save.
-5. Nach der Veröffentlichung die GitHub-Pages-Adresse öffnen, in der Form:
-   https://DEINNAME.github.io/fittrack/
-6. Am iPhone in Safari öffnen und unter "Teilen" > "Zum Home-Bildschirm"
-   auswählen. Falls angeboten, "Als Web-App öffnen" aktivieren.
+UPDATE DES BESTEHENDEN GITHUB-REPOSITORIES
+1. Auf deinem iPhone in FitTrack V1 zuerst "Mehr" > Backup (JSON) exportieren.
+2. Wenn du FitTrack_2_Update.zip verwendest: ZIP entpacken und NUR
+   diese vier Dateien in das Repository hochladen:
+   index.html, app.js, styles.css, sw.js.
+   README.txt kann auf GitHub bleiben oder weggelassen werden.
+   Alle vorhandenen Icon-Dateien und manifest.webmanifest bleiben unverändert.
+3. Wenn du stattdessen FitTrack_2_Vollversion.zip verwendest:
+   acht App-Dateien ersetzen (zusätzlich manifest.webmanifest und drei Icons).
+4. Öffne https://github.com/Gian-M-Dev/fittrack und wähle
+   "Add file" > "Upload files". Dateien einzeln oder gesammelt auswählen.
+   Bestätige ggf., dass vorhandene gleichnamige Dateien ersetzt werden.
+   Wichtig: NICHT die ZIP-Datei hochladen und keine Unterordner anlegen.
+5. Ganz unten "Commit changes" bestätigen.
+6. GitHub Pages veröffentlicht Änderungen an deinem bestehenden Repository:
+   https://gian-m-dev.github.io/fittrack/
+7. iPhone mit Internet: installierte FitTrack-App vollständig schließen
+   und wieder über den Home-Bildschirm öffnen. Bei Bedarf "Mehr" >
+   "Auf neue Version prüfen" wählen und erneut öffnen.
 
-Hinweis: Das Öffnen einer HTML-Datei direkt über die Dateien-App ersetzt
-kein Hosting. Für Offline-Funktion und Installation brauchst du zunächst
-HTTPS (z.B. GitHub Pages).
+DATENMIGRATION (WICHTIG)
+- Altdaten werden beim ersten Start von V2 aus demselben lokalen Speicher
+  (Schlüssel fittrack-local-v1) in fittrack-local-v2 kopiert.
+- Der alte Speicher bleibt unangetastet. Gespeicherte Trainingseinheiten,
+  Körpergewicht und Ernährung werden übernommen.
+- Der umfangreichste begonnene V1-Entwurf wird nach Möglichkeit übernommen.
+  Frühere selbst angelegte Übungen bleiben in der Bibliothek erhalten.
+- Die App auf dem iPhone-Homescreen und die Website in Safari können
+  unterschiedliche lokale Datenspeicher haben. Für Migration immer den
+  Home-Bildschirm-Eintrag öffnen, den du bisher zum Tracken nutzt.
+- Im Zweifelsfall Daten vorher exportieren; das Backup aus V1 kann V2 importieren.
 
-DATENSCHUTZ UND BACKUP
-- Alle Einträge bleiben lokal im Gerätespeicher der Web-App.
-- Es gibt KEINEN Cloud-Account und KEINE automatische Synchronisation.
-- Backups in "Mehr" > "Backup als JSON speichern" regelmäßig sichern.
-- Safari und installierte Home-Bildschirm-App können unterschiedliche
-  lokale Datenspeicher verwenden. Daher möglichst immer über das
-  Home-Bildschirm-Symbol trainieren.
-- Niemals ein JSON-Backup öffentlich auf GitHub hochladen.
+DATENSCHUTZ
+- Kein API-Schlüssel, keine kostenpflichtigen Dienste, keine Datenbank,
+  keine Drittanbieter-Skripte, keine Datenübertragung für dein Training.
+- Lokale Einträge sind nicht verschlüsselt. Regelmäßig private JSON-Backups erstellen.
+- JSON-Backups NICHT ins öffentliche GitHub-Repository hochladen.
+- GitHub Pages ist öffentlich, enthält aber nur den Programmcode.
 
-GRENZEN DER VERSION 1
-- Mahlzeiten werden manuell erfasst; keine KI-Fotoanalyse.
-- Trainingseinträge können gelöscht, aber noch nicht bearbeitet werden.
-- Kein App-Store-Upload notwendig.
+PAUSENTIMER / IPHONE
+- WebAudio-Piepser nach einer aktiven Start-Aktion.
+- Funktioniert wenn die App aktiv/vorne ist und Ton erlaubt ist.
+- Bei gesperrtem Telefon oder im Hintergrund kann iOS die Web-App stoppen;
+  ein verlässlicher Alarm ist dann nicht gewährleistet.
 
-Alles Gute beim Training!
+STATISTIKEN
+- Geschätztes 1RM nach Epley für 1–10 Wdh. mit Last > 0.
+- Muskelgruppen-Sätze: nur primäre Muskeln; keine indirekten Sätze.
+- Volumenlast (kg × Wdh.) ist KEIN direkter Indikator für Hypertrophie.
+- RIR = subjektiv geschätzte Wiederholungen in Reserve.
+- Gewichtstrend basiert auf bis zu sieben Einträgen, nicht zwingend sieben Tagen.
+
+FitTrack bleibt kostenlos und unabhängig von kostenpflichtigen APIs.
